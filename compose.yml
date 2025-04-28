@@ -1,0 +1,11 @@
+#services:
+#  mysql:
+#    container_name: 'guide-mysql'
+#    image: 'mysql:latest'
+#    environment:
+#      - 'MYSQL_DATABASE=agregadorinvesimentos'
+#      - 'MYSQL_PASSWORD=1234'
+#      - 'MYSQL_ROOT_PASSWORD=verysecret'
+#      - 'MYSQL_USER=root'
+#    ports:
+#      - '3306:3306'
