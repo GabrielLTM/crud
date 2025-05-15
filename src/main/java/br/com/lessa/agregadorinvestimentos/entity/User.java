@@ -33,10 +33,10 @@ public class User {
     public User() {
     }
 
-    public User(UUID userId, String email, String username, String password, Instant updateTimestamp, Instant creationTimestamp) {
+    public User(UUID userId, String username, String email, String password, Instant updateTimestamp, Instant creationTimestamp) {
         this.userId = userId;
-        this.email = email;
         this.username = username;
+        this.email = email;
         this.password = password;
         this.updateTimestamp = updateTimestamp;
         this.creationTimestamp = creationTimestamp;

@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import static java.util.UUID.*;
+
 @Service
 public class UserService {
 
@@ -22,7 +24,7 @@ public class UserService {
 
     public UUID createUser(CreateUserDto createUserDto){
 
-        var entity = new User(null, createUserDto.username(), createUserDto.email(), createUserDto.password(), Instant.now(), null);
+        var entity = new User(randomUUID(), createUserDto.username(), createUserDto.email(), createUserDto.password(), Instant.now(), null);
 
         var userSaved = userRepository.save(entity);
 
@@ -30,14 +32,14 @@ public class UserService {
     }
 
     public Optional<User> getUserById(String userId){
-        return userRepository.findById(UUID.fromString(userId));
+        return userRepository.findById(fromString(userId));
     }
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
     public void updateUserById(String userId, UpdateUserDto updateUserDto){
 
-        var id = UUID.fromString(userId);
+        var id = fromString(userId);
 
         var userEntity = userRepository.findById(id);
 
@@ -56,10 +58,10 @@ public class UserService {
     }
 
     public void deleteById(String userId){
-        var userExists = userRepository.existsById(UUID.fromString(userId));
+        var userExists = userRepository.existsById(fromString(userId));
 
         if (userExists){
-            userRepository.deleteById(UUID.fromString(userId));
+            userRepository.deleteById(fromString(userId));
         }
     }
 }
